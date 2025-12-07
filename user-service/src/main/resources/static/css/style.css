@@ -1,0 +1,76 @@
+/* ===== General Styles ===== */
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #f5f6fa;
+	color: #333;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 30px;
+	color: #2f3640;
+}
+
+h2 {
+	margin-bottom: 10px;
+	color: #2f3640;
+}
+
+/* ===== Form Container ===== */
+#login-form, #signup-form {
+	width: 300px;
+	margin: 20px auto;
+	padding: 20px 30px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Input Fields ===== */
+input[type="text"], input[type="password"], input[type="email"] {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 12px;
+	border: 1px solid #dcdde1;
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+input:focus {
+	border-color: #0097e6;
+	outline: none;
+}
+
+/* ===== Buttons ===== */
+button {
+	width: 100%;
+	padding: 10px;
+	background-color: #0097e6;
+	color: white;
+	font-size: 16px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #40739e;
+}
+
+/* ===== Response Message ===== */
+#response {
+	text-align: center;
+	font-weight: bold;
+	margin-top: 15px;
+}
+
+/* ===== Responsive ===== */
+@media ( max-width : 400px) {
+	#login-form, #signup-form {
+		width: 90%;
+		padding: 15px;
+	}
+}

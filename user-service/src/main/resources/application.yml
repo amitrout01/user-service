@@ -1,0 +1,40 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/amitdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+# Eureka Client Configuration
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+
+# Management endpoints (optional)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# JWT configuration (Fix: moved out of management block)
+jwt:
+  secret: ${JWT_SECRET:change_this_to_a_long_random_secret_32_chars_min!}
+  expiration-ms: 3600000

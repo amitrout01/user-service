@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Dashboard</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Dashboard</h1>
+<div>Welcome, <span id="username"></span></div>
+
+<h2>Product List</h2>
+<ul id="productList"></ul>
+
+<button onclick="logout()">Logout</button>
+
+<script>
+document.getElementById('username').innerText = localStorage.getItem('username');
+
+async function loadProducts() {
+    const token = localStorage.getItem('jwtToken');
+
+    const response = await fetch('/user/product/productList', {
+        headers: { 'Authorization': 'Bearer ' + token }
+    });
+
+    if (response.ok) {
+        const products = await response.json();
+        const list = document.getElementById('productList');
+        products.forEach(p => {
+            const li = document.createElement('li');
+            li.innerText = p.name + " - $" + p.price;
+            list.appendChild(li);
+        });
+    } else {
+        alert("Failed to load products. Please login again.");
+        window.location.href = '/index.html';
+    }
+}
+
+function logout() {
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('username');
+    window.location.href = '/index.html';
+}
+
+loadProducts();
+</script>
+</body>
+</html>
