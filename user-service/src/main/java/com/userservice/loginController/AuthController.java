@@ -30,7 +30,7 @@ public class AuthController {
 	@Autowired
 	private RoleRepository roleRepository;
 
-	// ===== LOGIN =====
+	// ===== LOGIN  =====
 	@PostMapping("/login")
 	public ResponseEntity<ApiResponse> login(@Valid @RequestBody LoginRequest request) {
 		User user = userService.findByUsername(request.getUsername());
